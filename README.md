@@ -4,7 +4,7 @@ A simple tutorial for developing a blockchain application from scratch in Python
 
 ## What is blockchain? How it is implemented? And how it works?
 
-Please read the [step-by-step implementation tutorial](https://www.ibm.com/developerworks/cloud/library/cl-develop-blockchain-app-in-python/index.html) to get your answers :)
+Please read the [step-by-step implementation tutorial](https://gist.github.com/satwikkansal/4a857cad2797b9d199547a752933a715) to get your answers :)
 
 ## Instructions to run
 
@@ -24,11 +24,16 @@ $ pip install -r requirements.txt
 Start a blockchain node server,
 
 ```sh
-# Windows users can follow this: https://flask.palletsprojects.com/en/1.1.x/cli/#application-discovery
 $ export FLASK_APP=node_server.py
 $ flask run --port 8000
 ```
 
+### For windows users
+```
+set LANG=C.UTF-8
+set FLASK_APP=node_server.py
+flask run --port 8000
+```
 One instance of our blockchain node is now up and running at port 8000.
 
 
@@ -36,6 +41,13 @@ Run the application on a different terminal session,
 
 ```sh
 $ python run_app.py
+```
+
+### For windows users
+```
+set LANG=C.UTF-8
+set FLASK_APP=run_app.py
+flask run --port 8000
 ```
 
 The application should be up and running at [http://localhost:5000](http://localhost:5000).
@@ -59,6 +71,7 @@ To play around by spinning off multiple custom nodes, use the `register_with/` e
 Here's a sample scenario that you might wanna try,
 
 ```sh
+# Make sure you set the FLASK_APP environment variable to node_server.py before running these nodes
 # already running
 $ flask run --port 8000 &
 # spinning up new nodes
